@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicoleta Cechir · Data Science</title>
+<meta name="description" content="Portfolio de Nicoleta Cechir, étudiante en BUT Science des données à l'IUT Sophia Antipolis : projets en traitement, analyse et valorisation de données.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg-soft:#f7f5f8; --ink:#1a1a1a; --muted:#5d6470; --line:#e7e3ea;
+  --pink:#ee82e6; --pink-ink:#b13aa8; --blue:#3b5277; --card:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#121318; --bg-soft:#1a1c23; --ink:#ececf1; --muted:#a3a9b6; --line:#2a2d37;
+        --pink:#ee82e6; --pink-ink:#f2a3ec; --blue:#8fa8d1; --card:#181a21;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.bar{height:5px;background:var(--pink)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+nav .name{font-weight:700;text-decoration:none;letter-spacing:-.01em}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted)}
+nav ul a{text-decoration:none}
+nav ul a:hover{color:var(--ink)}
+@media (max-width:640px){nav ul{display:none}}
+
+header.hero{padding:80px 0 56px}
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500}
+h1{font-size:clamp(38px,6vw,60px);line-height:1.05;letter-spacing:-.03em;margin:14px 0 18px;font-weight:700}
+h1 span{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--pink) 45%,transparent) 62%)}
+.lead{font-size:19px;color:var(--muted);max-width:640px;margin:0 0 30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--line);background:var(--card)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:16px;height:16px}
+
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;margin:0 0 28px}
+h3{margin:0;font-size:18px;letter-spacing:-.01em}
+
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
+.about p{margin:0 0 14px}
+.goals{display:grid;gap:14px}
+.goal{background:var(--bg-soft);border-radius:14px;padding:18px 20px}
+.goal b{display:block;font-size:13px;color:var(--pink-ink);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;font-weight:600}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+
+.pillar{margin-bottom:52px}
+.pillar:last-child{margin-bottom:0}
+.pillar-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.pillar-head .num{font-size:13px;color:var(--pink-ink);font-weight:600}
+.pillar-head h3{font-size:26px;letter-spacing:-.02em}
+.quote{color:var(--muted);font-style:italic;margin:0 0 22px;max-width:720px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.card .meta{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
+.card li{margin:4px 0}
+.card .result{font-size:14px;background:var(--bg-soft);border-radius:10px;padding:10px 12px}
+.card .result b{color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.pres{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--pink-ink);text-decoration:none;margin-top:2px}
+.pres:hover{text-decoration:underline}
+.tag{font-size:12px;padding:3px 9px;border-radius:99px;background:color-mix(in srgb,var(--blue) 12%,transparent);color:var(--blue);font-weight:500}
+
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skills .card h3{font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:14px;padding:6px 11px;border-radius:9px;background:var(--bg-soft)}
+@media (max-width:760px){.skills{grid-template-columns:1fr}}
+
+.timeline{display:grid;gap:22px}
+.tl{display:grid;grid-template-columns:150px 1fr;gap:20px}
+.tl .when{font-size:14px;color:var(--muted);padding-top:2px}
+.tl .where{color:var(--muted);font-size:15px;margin:2px 0 6px}
+.tl ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
+@media (max-width:600px){.tl{grid-template-columns:1fr;gap:2px}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+
+.contact{text-align:center;padding:80px 0}
+.contact h3{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin-bottom:10px}
+.contact p{color:var(--muted);margin:0 auto 26px;max-width:520px}
+.contact .btns{justify-content:center}
+footer{border-top:1px solid var(--line);padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="bar"></div>
+<nav><div class="wrap">
+  <a class="name" href="#">Nicoleta Cechir</a>
+  <ul><li><a href="#about">À propos</a></li><li><a href="#projets">Projets</a></li><li><a href="#competences">Compétences</a></li><li><a href="#parcours">Parcours</a></li><li><a href="#contact">Contact</a></li></ul>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">BUT Science des données · IUT Sophia Antipolis</div>
+  <h1>Bonjour, je suis <span>Nicoleta</span>.</h1>
+  <p class="lead">Étudiante en 2<sup>e</sup> année de BUT Science des données, je traite, analyse et valorise des données pour aider à la prise de décision. Je recherche un stage de Data Analyst à partir du 30 mars 2027 (10 semaines minimum).</p>
+  <div class="btns">
+    <a class="btn primary" href="cv/CV_Nicoleta_Cechir_FR.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>CV (FR)</a>
+    <a class="btn" href="cv/CV_Nicoleta_Cechir_EN.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>CV (EN)</a>
+    <a class="btn" href="https://www.linkedin.com/in/nicoleta-cechir-166bb7382" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></header>
+
+<section id="about"><div class="wrap">
+  <h2>À propos</h2>
+  <div class="about">
+    <div>
+      <p>J'étudie la science des données à l'IUT de Sophia Antipolis depuis janvier 2025. Mes projets m'ont appris que le traitement des données est une étape aussi importante que l'analyse elle-même : une donnée mal nettoyée fausse tous les résultats qui suivent.</p>
+      <p>En parallèle de mes études, j'ai travaillé comme assistante en comptabilité à distance, géré une activité en freelance et donné des cours d'informatique. Je parle français, anglais et roumain.</p>
+      <p>En dehors de la data : illustration numérique, cuisines du monde et randonnée.</p>
+    </div>
+    <div class="goals">
+      <div class="goal"><b>Objectif académique</b>Master ou école d'ingénieurs à l'étranger.</div>
+      <div class="goal"><b>Objectif professionnel</b>Data Scientist dans l'aéronautique, ou créer ma propre entreprise dans la data.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="projets"><div class="wrap">
+  <h2>Projets</h2>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="num">01</span><h3>Traiter</h3></div>
+    <p class="quote">Collecter, nettoyer et structurer des données brutes pour qu'elles soient fiables.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span>Enquête</span><span>2025</span></div>
+        <h3>Réseaux sociaux &amp; alimentation</h3>
+        <ul>
+          <li>Conception et diffusion d'une enquête numérique avec Sphinx</li>
+          <li>Collecte, import et structuration des réponses brutes</li>
+          <li>Tris croisés et analyses univariées et bivariées pour dégager des profils de consommation</li>
+        </ul>
+        <div class="result"><b>424 répondants</b> analysés</div>
+        <div class="tags"><span class="tag">Sphinx</span><span class="tag">Enquête</span><span class="tag">Statistiques descriptives</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span>Données macroéconomiques · projet de groupe</span></div>
+        <h3>PIB &amp; Bonheur</h3>
+        <ul>
+          <li>Extraction de données depuis des bases internationales</li>
+          <li>Harmonisation de bases hétérogènes et alignement temporel sur 1960–2024</li>
+          <li>Comparaison de modèles de régression (linéaire, logarithmique, parabolique, exponentiel) évalués par le R²</li>
+        </ul>
+        <div class="result"><b>65 ans</b> de données consolidées</div>
+        <a class="pres" href="projets/pib.pdf" target="_blank" rel="noopener">Voir la présentation →</a>
+        <div class="tags"><span class="tag">Nettoyage de données</span><span class="tag">Régression</span><span class="tag">Corrélation</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span>Base de données · RATP · projet de groupe</span><span>2026</span></div>
+        <h3>Conception d'une base de données</h3>
+        <ul>
+          <li>Modélisation conceptuelle et logique, schéma relationnel</li>
+          <li>Implémentation SQL d'une base centralisée avec contraintes d'intégrité</li>
+          <li>Tables adaptées à la gestion d'un réseau de transport en commun</li>
+        </ul>
+        <a class="pres" href="projets/ratp.pdf" target="_blank" rel="noopener">Voir la présentation →</a>
+        <div class="tags"><span class="tag">SQL</span><span class="tag">phpMyAdmin</span><span class="tag">Modélisation</span><span class="tag">Base relationnelle</span></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="num">02</span><h3>Analyser</h3></div>
+    <p class="quote">« Analyser des données ne consiste pas seulement à lire des chiffres, mais aussi à comprendre ce qu'ils montrent vraiment. »</p>
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span>SAE Statistiques · projet de groupe</span><span>2026</span></div>
+        <h3>Régression sur données réelles : consommation automobile</h3>
+        <ul>
+          <li>Choix du prédicteur à partir d'une matrice de corrélations (cylindrée r = −0,80)</li>
+          <li>Programmation en R de modèles linéaire, exponentiel et puissance</li>
+          <li>Validation par l'analyse des résidus et proposition d'une régression multiple</li>
+        </ul>
+        <div class="result">Meilleur modèle : <b>puissance, R² = 0,71</b> (contre 0,64 en linéaire)</div>
+        <a class="pres" href="projets/stat.pdf" target="_blank" rel="noopener">Voir la présentation →</a>
+        <div class="tags"><span class="tag">R</span><span class="tag">Régression</span><span class="tag">Analyse des résidus</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span>Data visualisation · SNCF · projet de groupe</span><span>2026</span></div>
+        <h3>Satisfaction client SNCF</h3>
+        <ul>
+          <li>Nettoyage et structuration des données voyageurs</li>
+          <li>Calcul de KPIs et d'indicateurs de satisfaction</li>
+          <li>Segmentation par âge, classe et type de transport</li>
+        </ul>
+        <div class="result">Synthèse sous forme de <b>dashboard</b> pour améliorer la qualité de service</div>
+        <a class="pres" href="projets/sncf.pdf" target="_blank" rel="noopener">Voir la présentation →</a>
+        <div class="tags"><span class="tag">KPIs</span><span class="tag">Dashboard</span><span class="tag">Segmentation</span></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-head"><span class="num">03</span><h3>Valoriser</h3></div>
+    <p class="quote">« Valoriser des données, c'est savoir les rendre utiles et compréhensibles pour ceux qui doivent prendre des décisions. »</p>
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span>Simulation d'entreprise</span></div>
+        <h3>Win Firme – Ouvre l'Œil</h3>
+        <ul>
+          <li>Suivi d'indicateurs : chiffre d'affaires, résultat, parts de marché</li>
+          <li>Prévision des ventes à partir de l'historique et de la concurrence</li>
+          <li>Décisions stratégiques en équipe et pitch devant un investisseur</li>
+        </ul>
+        <div class="result">Prévision du CA juste à <b>99,5 %</b> (80 000 ventes prévues, 79 614 réalisées)</div>
+        <div class="tags"><span class="tag">Prévision</span><span class="tag">KPIs</span><span class="tag">Stratégie</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span>En anglais</span></div>
+        <h3>Business proposal</h3>
+        <ul>
+          <li>Rédaction d'un business proposal technique selon les standards professionnels</li>
+          <li>Pitch commercial et soutenance orale entièrement en anglais</li>
+          <li>Adaptation du message data aux enjeux stratégiques</li>
+        </ul>
+        <div class="tags"><span class="tag">Anglais</span><span class="tag">Pitch</span><span class="tag">Communication</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span>Data storytelling</span></div>
+        <h3>Infographie Festival des Jeux &amp; affiche BUT SD</h3>
+        <ul>
+          <li>Synthèse visuelle des résultats d'une étude statistique pour le grand public</li>
+          <li>Support de communication pour présenter le BUT SD, ses matières et ses débouchés</li>
+        </ul>
+        <div class="tags"><span class="tag">Infographie</span><span class="tag">Canva</span><span class="tag">Vulgarisation</span></div>
+      </article>
+    </div>
+  </div>
+</div></section>
+
+<section id="competences"><div class="wrap">
+  <h2>Compétences</h2>
+  <div class="skills">
+    <div class="card"><h3>Langages &amp; outils</h3><div class="chips">
+      <span class="chip">Python</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">Excel</span><span class="chip">Power BI</span><span class="chip">Microsoft Fabric</span><span class="chip">Jira</span><span class="chip">Sphinx</span>
+    </div></div>
+    <div class="card"><h3>Data</h3><div class="chips">
+      <span class="chip">Traitement de données</span><span class="chip">Statistiques</span><span class="chip">Régression</span><span class="chip">Visualisation</span><span class="chip">Machine learning</span><span class="chip">RGPD / AI Act</span>
+    </div></div>
+    <div class="card"><h3>Langues</h3><div class="chips">
+      <span class="chip">Français</span><span class="chip">Anglais</span><span class="chip">Roumain</span><span class="chip">Espagnol</span><span class="chip">Italien</span>
+    </div></div>
+  </div>
+</div></section>
+
+<section id="parcours"><div class="wrap">
+  <div class="two">
+    <div>
+      <h2>Expérience</h2>
+      <div class="timeline">
+        <div class="tl"><div class="when">06/2025 – 07/2026</div><div><h3>Assistante en comptabilité</h3><div class="where">Cable Warriors, New Jersey · à distance</div>
+          <ul><li>Gestion hebdomadaire des fiches de paie</li><li>Suivi des activités des employés via une application</li><li>Mise à jour des données administratives</li></ul></div></div>
+        <div class="tl"><div class="when">06/2025 – 09/2025</div><div><h3>Freelance</h3><div class="where">Flavouris, Nice</div>
+          <ul><li>Gestion des ventes, des commandes et des fournisseurs</li><li>Stratégie marketing digitale</li></ul></div></div>
+        <div class="tl"><div class="when">01/2024 – 08/2026</div><div><h3>Tutorat</h3><div class="where">Nice</div>
+          <ul><li>Initiation à l'informatique pour des personnes âgées</li><li>Aide aux démarches administratives</li></ul></div></div>
+      </div>
+    </div>
+    <div>
+      <h2>Formation</h2>
+      <div class="timeline">
+        <div class="tl"><div class="when">Depuis 01/2025</div><div><h3>BUT Science des données</h3><div class="where">IUT de Valbonne, Sophia Antipolis</div>
+          <ul><li>Analyse et présentation de l'information</li><li>Gestion d'entreprise et comptabilité</li><li>Programmation</li></ul></div></div>
+        <div class="tl"><div class="when">Lycée</div><div><h3>Baccalauréat général</h3><div class="where">Lycée Honoré d'Estienne d'Orves, Nice</div>
+          <ul><li>Mathématiques, physique-chimie, NSI</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <h3>Travaillons ensemble</h3>
+  <p>Je recherche un stage de Data Analyst à partir du 30 mars 2027. N'hésitez pas à me contacter.</p>
+  <div class="btns">
+    <a class="btn primary" href="mailto:nicoleta.cechir@gmail.com">nicoleta.cechir@gmail.com</a>
+    <a class="btn" href="https://www.linkedin.com/in/nicoleta-cechir-166bb7382" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></section>
+
+<footer>© 2026 Nicoleta Cechir · Nice, France</footer>
+</body>
+</html>
